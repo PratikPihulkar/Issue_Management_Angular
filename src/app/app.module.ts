@@ -9,7 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { LoginFrontComponent } from './login-front/login-front.component';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,9 @@ import { LoginFrontComponent } from './login-front/login-front.component';
     AppRoutingModule,
     NgbModule,
     AdminModule,
-    UserModule
+    UserModule,
+    HttpClientModule
+    
   ],
   providers: [
     provideClientHydration()

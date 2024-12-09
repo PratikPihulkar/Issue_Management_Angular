@@ -6,6 +6,7 @@ import { AdminComponent } from './admin.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { BasePageComponent } from './base-page/base-page.component';
 import { SingleProjectViewComponent } from './single-project-view/single-project-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { SingleProjectViewComponent } from './single-project-view/single-project
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class AdminModule { }

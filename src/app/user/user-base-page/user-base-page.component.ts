@@ -16,8 +16,8 @@ export class UserBasePageComponent {
     this.issueForm = this.fb.group({
       title: ['', Validators.required],
       description: ['', Validators.required],
-      status: ['', Validators.required],
-      priority: ['', Validators.required],
+      status: ['open', Validators.required],
+      priority: ['medium', Validators.required],
       deadline: ['', Validators.required],
     });
   }

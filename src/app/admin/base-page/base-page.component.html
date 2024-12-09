@@ -1,41 +1,235 @@
-<div class="feat bg-gray pt-5 pb-5">
-    <div class="container">
-      <div class="row">
-       
-        <div class="col-lg-4 col-sm-6">
-          <div class="item"> <span class="icon feature_box_col_one"><i class="fa fa-globe"></i></span>
-            <h6>Add Project</h6>
+<div class="mdiv">
+    <div class="insideMdiv">
+      <div class="left" >
+        <div class="ctn mt-5">
+          <hr>
+          <button class="btn btn-outline-primary btn-sm m-2" (click)="openModalforAddProject()">Add Project</button>
+          <button class="btn btn-outline-primary btn-sm m-2" (click)="openModalforAddEmployee()">Add Employee</button>
+          <button class="btn btn-outline-primary btn-sm m-2" (click)="viewAllEmp()">View All Employee</button>
+          <hr class="mb-4">
+
+          <!-- Modal Add Project-->
+          <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isModalOpen}" [style.display]="isModalOpen ? 'block' : 'none'" (click)="closeModal()">
+            <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Create Project</h5>
+                  
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="projectForm" (ngSubmit)="onSubmitProject()">
+                    <div class="form-group">
+                      <label for="name">Project Name:</label>
+                      <input id="name" formControlName="name" class="form-control" required>
+                      <div *ngIf="projectForm.get('name')?.invalid && projectForm.get('name')?.touched" class="text-danger">
+                        Project name is required.
+                      </div>
+                    </div>
+                
+                    <div class="form-group">
+                      <label for="description">Description:</label>
+                      <textarea id="description" formControlName="description" class="form-control"></textarea>
+                      <div *ngIf="projectForm.get('description')?.invalid && projectForm.get('description')?.touched" class="text-danger">
+                        Description is required.
+                      </div>
+                    </div>
+                
+                    <div class="form-group">
+                      <label for="start_date">Start Date:</label>
+                      <input type="date" id="start_date" formControlName="start_date" class="form-control" required>
+                      <div *ngIf="projectForm.get('start_date')?.invalid && projectForm.get('start_date')?.touched" class="text-danger">
+                        Start date is required.
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="end_date">End Date:</label>
+                      <input type="date" id="end_date" formControlName="end_date" class="form-control" required>
+                      <div *ngIf="projectForm.get('end_date')?.invalid && projectForm.get('end_date')?.touched" class="text-danger">
+                        End date is required.
+                      </div>
+                      <div *ngIf="projectForm.errors?.['dateMismatch'] && projectForm.touched" class="text-danger">
+                        End date must be after the start date.
+                      </div>
+                    </div>
+                    
+                    <div class="modal-footer"> 
+                      <button type="submit" class="btn btn-primary" [disabled]="projectForm.invalid">Create</button>
+    
+                      <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+                    </div>
+                
+                   
+                  </form>
+                </div>
+                
+              </div>
+            </div>
           </div>
+
+          <div class="modal-backdrop" [ngClass]="{'show': isModalOpen}" *ngIf="isModalOpen"></div>
+
+          <!-- Modal Add Member-->
+          <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isEmployeeModalOpen}" [style.display]="isEmployeeModalOpen ? 'block' : 'none'" (click)="closeEmployeeModal()">
+            <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Add Employee</h5>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="employeeForm" (ngSubmit)="onSubmitEmployee()">
+                    <div class="form-group">
+                      <label for="employeeName">Employee Name:</label>
+                      <input id="employeeName" formControlName="employeeName" class="form-control" required>
+                      <div *ngIf="employeeForm.get('employeeName')?.invalid && employeeForm.get('employeeName')?.touched" class="text-danger">
+                        Employee name is required.
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="employeeRole">Role:</label>
+                      <input id="employeeRole" formControlName="employeeRole" class="form-control" required>
+                      <div *ngIf="employeeForm.get('employeeRole')?.invalid && employeeForm.get('employeeRole')?.touched" class="text-danger">
+                        Role is required.
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="employeeEmail">Email:</label>
+                      <input type="email" id="employeeEmail" formControlName="employeeEmail" class="form-control" required>
+                      <div *ngIf="employeeForm.get('employeeEmail')?.invalid && employeeForm.get('employeeEmail')?.touched" class="text-danger">
+                        Email is required.
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="employeePassword">Password:</label>
+                      <input type="password" id="employeePassword" formControlName="employeePassword" class="form-control" required>
+                      <div *ngIf="employeeForm.get('employeePassword')?.invalid && employeeForm.get('employeePassword')?.touched" class="text-danger">
+                        Password is required.
+                      </div>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="employeePasswordConfirm">Confirm Password:</label>
+                      <input type="password" id="employeePasswordConfirm" formControlName="employeePasswordConfirm" class="form-control" required>
+                      <div *ngIf="employeeForm.get('employeePasswordConfirm')?.invalid && employeeForm.get('employeePasswordConfirm')?.touched" class="text-danger">
+                        Confirm Password is required.
+                      </div>
+                      <div *ngIf="employeeForm.errors?.['passwordMismatch'] && employeeForm.touched" class="text-danger">
+                        Passwords must match.
+                      </div>
+                    </div>
+                    
+                    
+               
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-primary" [disabled]="employeeForm.invalid">Add Employee</button>
+                      <button type="button" class="btn btn-secondary" (click)="closeEmployeeModal()">Cancel</button>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal-backdrop" [ngClass]="{'show': isEmployeeModalOpen}" *ngIf="isEmployeeModalOpen"></div>
+          
         </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="item"> <span class="icon feature_box_col_two"><i class="fa fa-anchor"></i></span>
-            <h6>View All Projects</h6>
+        <div class="projectContainer">
+         <div class="">
+          <div class="d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Projects</h5>
+            <div>
+              <button *ngIf="btnToggleVar" class="btn me-2" (click)="btnToggle()"><i class="bi bi-grid-fill"></i></button>
+              <button *ngIf="!btnToggleVar" class="btn me-2 btn " (click)="btnToggle()"><i class="bi bi-list"></i></button>
+            </div>
           </div>
+         
+         </div>
+         
+          <hr class="mb-2">
+
+          <div class="pro cardView" *ngIf="!btnToggleVar">
+            <div class="singlePro">
+              <h4>Project Title</h4>
+              <h6>Manager : Prakash Diye</h6>
+              <h6>Description : You may want to add some CSS to style the modal and the backdrop. Here’s a simple example</h6>
+              <h6>Start Date: 12/12/2024</h6>
+              <h6>Deadline:  12/12/2024</h6>
+              <button class="btn btn-sm btn-outline-secondary"> View</button>
+            </div>
+          </div>
+
+          <div class="tableView " *ngIf="btnToggleVar">
+            <div class="table-responsive"  >
+              <table class="table " >
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Project Title </th>
+                    <th scope="col">Manager</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">Deadline</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="">
+                    <td scope="row"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+
+          <div class="tableView " *ngIf="empTableDisplay ">
+            <div class="table-responsive"  >
+              <table class="table " >
+                <thead>
+                  <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Project Name</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Manager</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="">
+                    <td scope="row"></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-outline-secondary btn-sm m-2"> Edit Emp</button>
+                        <button class="btn btn-outline-secondary btn-sm m-2"> Remove Emp</button>
+                    </td>
+                    
+                  </tr>
+                 
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+
         </div>
-        <!-- <div class="col-lg-4 col-sm-6">
-          <div class="item"> <span class="icon feature_box_col_three"><i class="fa fa-hourglass-half"></i></span>
-            <h6>Your Photoshoping</h6>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-          </div>
+        
+          
         </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="item"> <span class="icon feature_box_col_four"><i class="fa fa-database"></i></span>
-            <h6>Business Growth</h6>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="item"> <span class="icon feature_box_col_five"><i class="fa fa-upload"></i></span>
-            <h6>Market Strategy</h6>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-          </div>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <div class="item"> <span class="icon feature_box_col_six"><i class="fa fa-camera"></i></span>
-            <h6>Retina Ready</h6>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor Aenean massa.</p>
-          </div>
-        </div> -->
       </div>
     </div>
-  </div>
