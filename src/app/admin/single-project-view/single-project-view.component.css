@@ -1,0 +1,119 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    background: #d4eeff;
+   
+    padding: 5px 0;
+}
+
+h1, h2 {
+    margin: 0 0 5px 0;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+/* Progress Bar */
+.completion {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.progress-bar {
+    background: #ddd;
+    border-radius: 10px;
+    height: 15px;
+    width: 100%;
+    overflow: hidden;
+    margin: 10px 0;
+}
+
+.progress {
+    background: #00ff33;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Admin Panel */
+.admin-panel {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.buttons {
+   
+    background: #358cc6;
+    color: white;
+
+    
+}
+
+.buttons:hover {
+    background: #6e90f7;
+}
+
+/* Members List */
+.members-list {
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background: #f4f4f4;
+}
+
+select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.change-role, .remove {
+    background: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.change-role:hover, .remove:hover {
+    background: #e53935;
+}

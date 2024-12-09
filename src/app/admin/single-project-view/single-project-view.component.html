@@ -1,0 +1,59 @@
+
+<div class="container">
+    <header class="header">
+        <h5>Project Issue Management</h5>
+    </header>
+    
+    <section class="project-details">
+        <div class="completion">
+            <h5>Project Completion</h5>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+            <p>75% Completed</p>
+        </div>
+    </section>
+
+    <section class="admin-panel">
+        <h5>Admin Panel</h5>
+        <div class="actions">
+            <button id="addMember" class="buttons btn btn-sm">Add Member</button>
+            <button id="removeMember" class="buttons btn btn-sm">Remove Member</button>
+            <button id="removeMember" class="buttons btn btn-sm">Issue</button>
+        </div>
+    </section>
+
+    <section class="members-list">
+        <h5>Members</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>john.doeexample.com</td>
+                    <td>
+                        <select>
+                            <option value="Admin">Admin</option>
+                            <option value="Developer">Developer</option>
+                            <option value="Tester">Tester</option>
+                        </select>
+                    </td>
+                    <td>
+                        <button class="change-role" class="btn btn-sm btn-danger m-1">Change Role</button>
+                        <button class="remove" class="btn btn-sm btn-danger m-1">Remove</button>
+                    </td>
+                </tr>
+                <!-- Add more rows dynamically -->
+            </tbody>
+        </table>
+    </section>
+</div>

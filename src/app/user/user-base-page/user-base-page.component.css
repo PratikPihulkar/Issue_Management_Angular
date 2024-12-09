@@ -1,0 +1,40 @@
+.container {
+    max-width: 1200px;
+  }
+  .btn {
+    background-color: #4a5568;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn:hover {
+    background-color: #2d3748;
+  }
+  .btn-primary {
+    background-color: #3182ce;
+    
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background-color: #2b6cb0;
+  }
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    margin-top: 4px;
+  }
+  .table-auto {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .table-auto th,
+  .table-auto td {
+    border: 1px solid #e2e8f0;
+    padding: 8px;
+  }
+  

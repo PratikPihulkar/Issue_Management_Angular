@@ -1,0 +1,267 @@
+<!-- <div class="mdiv">
+    <div class="insideMdiv">
+        <div class="d-flex ">
+            <div class="d-flex">
+                <form formGroup="issueForm" (ngSubmit)="addIssue()">
+                    <div class="mb-4">
+                      <label for="title" class="block font-bold">Title</label>
+                      <input
+                        id="title"
+                        formControlName="title"
+                        type="text"
+                        required
+                        class="form-input w-full"
+                      />
+                      <div
+                        *ngIf="
+                          issueForm.get('title')?.invalid &&
+                          issueForm.get('title')?.touched
+                        "
+                        class="text-red-500 text-sm"
+                      >
+                        Title is required.
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label for="description" class="block font-bold">Description</label>
+                      <textarea
+                        id="description"
+                        formControlName="description"
+                        required
+                        class="form-input w-full"
+                      ></textarea>
+                      <div
+                        *ngIf="
+                          issueForm.get('description')?.invalid &&
+                          issueForm.get('description')?.touched
+                        "
+                        class="text-red-500 text-sm"
+                      >
+                        Description is required.
+                      </div>
+                    </div>
+                    <div class="mb-4">
+                      <label for="status" class="block font-bold">Status</label>
+                      <select
+                        id="status"
+                        formControlName="status"
+                        required
+                        class="form-input w-full"
+                      >
+                        <option value="open">Open</option>
+                        <option value="inprogress">In Progress</option>
+                        <option value="resolved">Resolved</option>
+                        <option value="closed">Closed</option>
+                      </select>
+                    </div>
+                    <div class="mb-4">
+                      <label for="priority" class="block font-bold">Priority</label>
+                      <input
+                        id="priority"
+                        formControlName="priority"
+                        type="text"
+                        required
+                        class="form-input w-full"
+                      />
+                    </div>
+                    <div class="mb-4">
+                      <label for="deadline" class="block font-bold">Deadline</label>
+                      <input
+                        id="deadline"
+                        formControlName="deadline"
+                        type="date"
+                        required
+                        class="form-input w-full"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      class="btn-primary mt-4 w-full"
+                      [disabled]="issueForm.invalid"
+                    >
+                      Submit
+                    </button>
+                  </form>
+            </div>
+            <div class="d-flex">
+                <div class="bg-white shadow p-6 rounded">
+                    <h2 class="text-lg font-bold mb-4">Issue List</h2>
+                    <table class="table-auto w-full border-collapse border border-gray-200">
+                      <thead>
+                        <tr class="bg-gray-800 text-white">
+                          <th class="px-4 py-2">Title</th>
+                          <th class="px-4 py-2">Description</th>
+                          <th class="px-4 py-2">Status</th>
+                          <th class="px-4 py-2">Priority</th>
+                          <th class="px-4 py-2">Deadline</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let issue of issues" class="border-b">
+                          <td class="border px-4 py-2">{{ issue.title }}</td>
+                          <td class="border px-4 py-2">{{ issue.description }}</td>
+                          <td class="border px-4 py-2">{{ issue.status }}</td>
+                          <td class="border px-4 py-2">{{ issue.priority }}</td>
+                          <td class="border px-4 py-2">{{ issue.deadline }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+            </div>
+            <div class="d-flex">
+                <div class="bg-white shadow p-6 rounded">
+                        <h2 class="text-lg font-bold mb-4">Closed Issues</h2>
+                        <table class="table-auto w-full border-collapse border border-gray-200">
+                        <thead>
+                            <tr class="bg-gray-800 text-white">
+                            <th class="px-4 py-2">Title</th>
+                            <th class="px-4 py-2">Description</th>
+                            <th class="px-4 py-2">Status</th>
+                            <th class="px-4 py-2">Priority</th>
+                            <th class="px-4 py-2">Deadline</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let issue of closedIssues" class="border-b">
+                            <td class="border px-4 py-2">{{ issue.title }}</td>
+                            <td class="border px-4 py-2">{{ issue.description }}</td>
+                            <td class="border px-4 py-2">{{ issue.status }}</td>
+                            <td class="border px-4 py-2">{{ issue.priority }}</td>
+                            <td class="border px-4 py-2">{{ issue.deadline }}</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+        
+<div class="d-flex flex-wrap justify-content">
+    <div class="flex-grow-1 box m-2" style="max-width: 32%;">
+        <form formGroup="issueForm" (ngSubmit)="addIssue()">
+            <div class="mb-4">
+              <label for="title" class="block font-bold">Title</label>
+              <input
+                id="title"
+                formControlName="title"
+                type="text"
+                required class="form-input w-full" />
+              <div
+                *ngIf="
+                  issueForm.get('title')?.invalid &&
+                  issueForm.get('title')?.touched
+                "
+                class="text-red-500 text-sm"
+              >
+                Title is required.
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="description" class="block font-bold">Description</label>
+              <textarea id="description" formControlName="description"  required class="form-input w-full"></textarea>
+              <div
+                *ngIf="
+                  issueForm.get('description')?.invalid &&
+                  issueForm.get('description')?.touched
+                "
+                class="text-red-500 text-sm"
+              >
+                Description is required.
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="status" class="block font-bold">Status</label>
+              <select
+                id="status"
+                formControlName="status"
+                required
+                class="form-input w-full"
+              >
+                <option value="open">Open</option>
+                <option value="inprogress">In Progress</option>
+                <option value="resolved">Resolved</option>
+                <option value="closed">Closed</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="priority" class="block font-bold">Priority</label>
+              <input
+                id="priority"
+                formControlName="priority"
+                type="text"
+                required
+                class="form-input w-full"
+              />
+            </div>
+            <div class="mb-4">
+              <label for="deadline" class="block font-bold">Deadline</label>
+              <input
+                id="deadline"
+                formControlName="deadline"
+                type="date"
+                required
+                class="form-input w-full"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn-primary mt-4 w-full"
+              [disabled]="issueForm.invalid"
+            >
+              Submit
+            </button>
+          </form>
+    </div>
+    <div class="flex-grow-1 box m-2" style="max-width: 32%;">
+        <div class="bg-white shadow p-6 rounded">
+            <h2 class="text-lg font-bold mb-4">Issue List</h2>
+            <table class="table-auto w-full border-collapse border border-gray-200">
+              <thead>
+                <tr class="bg-gray-800 text-white">
+                  <th class="px-4 py-2">Title</th>
+                  <th class="px-4 py-2">Description</th>
+                  <th class="px-4 py-2">Status</th>
+                  <th class="px-4 py-2">Priority</th>
+                  <th class="px-4 py-2">Deadline</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let issue of issues" class="border-b">
+                  <td class="border px-4 py-2">{{ issue.title }}</td>
+                  <td class="border px-4 py-2">{{ issue.description }}</td>
+                  <td class="border px-4 py-2">{{ issue.status }}</td>
+                  <td class="border px-4 py-2">{{ issue.priority }}</td>
+                  <td class="border px-4 py-2">{{ issue.deadline }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    </div>
+    <div class="flex-grow-1 box m-2" style="max-width: 32%;">
+        <div class="bg-white shadow p-6 rounded">
+            <h2 class="text-lg font-bold mb-4">Closed Issues</h2>
+            <table class="table-auto w-full border-collapse border border-gray-200">
+            <thead>
+                <tr class="bg-gray-800 text-white">
+                <th class="px-4 py-2">Title</th>
+                <th class="px-4 py-2">Description</th>
+                <th class="px-4 py-2">Status</th>
+                <th class="px-4 py-2">Priority</th>
+                <th class="px-4 py-2">Deadline</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let issue of closedIssues" class="border-b">
+                <td class="border px-4 py-2">{{ issue.title }}</td>
+                <td class="border px-4 py-2">{{ issue.description }}</td>
+                <td class="border px-4 py-2">{{ issue.status }}</td>
+                <td class="border px-4 py-2">{{ issue.priority }}</td>
+                <td class="border px-4 py-2">{{ issue.deadline }}</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+  
