@@ -16,6 +16,7 @@ export class BasePageComponent implements OnInit{
 
   btnToggleVar=true
   empTableDisplay=false
+  projectTableDisplay=true
 
  btnToggle() {
   this.btnToggleVar = !this.btnToggleVar;
@@ -66,7 +67,7 @@ export class BasePageComponent implements OnInit{
    
   }
     
-  openModalforAddProject() {
+  openModalforAddProject() {    
     this.isModalOpen = true;
   }
 
@@ -75,9 +76,13 @@ export class BasePageComponent implements OnInit{
   }
 
   viewAllEmp(){
-   
-    this.empTableDisplay=true
+    this.projectTableDisplay=false
+    this.empTableDisplay= true
     
+  }
+  viewAllProject(){
+    this.projectTableDisplay=true
+    this.empTableDisplay= false
   }
 
   closeModal() {

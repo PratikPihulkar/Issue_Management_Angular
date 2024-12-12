@@ -4,6 +4,7 @@
         <div class="ctn mt-5">
           <hr>
           <button class="btn btn-outline-primary btn-sm m-2" (click)="openModalforAddProject()">Add Project</button>
+          <button class="btn btn-outline-primary btn-sm m-2" (click)="viewAllProject()">View All Project</button>
           <button class="btn btn-outline-primary btn-sm m-2" (click)="openModalforAddEmployee()">Add Employee</button>
           <button class="btn btn-outline-primary btn-sm m-2" (click)="viewAllEmp()">View All Employee</button>
           <hr class="mb-4">
@@ -87,7 +88,11 @@
                     </div>
                     <div class="form-group">
                       <label for="employeeRole">Role:</label>
-                      <input id="employeeRole" formControlName="employeeRole" class="form-control" required>
+                      <select id="employeeRole" formControlName="employeeRole" class="form-select" required>
+                        <option value="" disabled selected>Select Role</option>
+                        <option value="developer">Developer</option>
+                        <option value="manager">Manager</option>
+                      </select>
                       <div *ngIf="employeeForm.get('employeeRole')?.invalid && employeeForm.get('employeeRole')?.touched" class="text-danger">
                         Role is required.
                       </div>
@@ -135,17 +140,20 @@
           <div class="modal-backdrop" [ngClass]="{'show': isEmployeeModalOpen}" *ngIf="isEmployeeModalOpen"></div>
           
         </div>
-        <div class="projectContainer">
-         <div class="">
-          <div class="d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Projects</h5>
-            <div>
-              <button *ngIf="btnToggleVar" class="btn me-2" (click)="btnToggle()"><i class="bi bi-grid-fill"></i></button>
-              <button *ngIf="!btnToggleVar" class="btn me-2 btn " (click)="btnToggle()"><i class="bi bi-list"></i></button>
-            </div>
-          </div>
+
+
+  
+    <div class="projectContainer" *ngIf="this.projectTableDisplay">
          
-         </div>
+            <div class="">
+              <div class="d-flex align-items-center justify-content-between">
+                <h5 class="mb-0">Projects</h5>
+                <div>
+                <button *ngIf="btnToggleVar" class="btn me-2" (click)="btnToggle()"><i class="bi bi-grid-fill"></i></button>
+                  <button *ngIf="!btnToggleVar" class="btn me-2 btn " (click)="btnToggle()"><i class="bi bi-list"></i></button>
+                </div>
+              </div>
+            </div>
          
           <hr class="mb-2">
 
@@ -183,51 +191,52 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    
                   </tr>
-                 
                 </tbody>
               </table>
             </div>
-            
           </div>
+      </div>
 
-          <div class="tableView " *ngIf="empTableDisplay ">
-            <div class="table-responsive"  >
-              <table class="table " >
-                <thead>
-                  <tr class="table-primary">
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Project Name</th>
-                    <th scope="col">Role</th>
-                    <th scope="col">Manager</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="">
-                    <td scope="row"></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                        <button class="btn btn-outline-secondary btn-sm m-2"> Edit Emp</button>
-                        <button class="btn btn-outline-secondary btn-sm m-2"> Remove Emp</button>
-                    </td>
-                    
-                  </tr>
-                 
-                </tbody>
-              </table>
-            </div>
-            
+
+      <div class="empContainer" *ngIf="!projectTableDisplay">
+          <h5 class="mb-0">Employees</h5> 
+          <hr class="mb-2 mt-2">
+        <div class="tableView "> <!-- *ngIf="empTableDisplay "-->
+          <div class="table-responsive"  >
+            <table class="table " >
+              <thead>
+                <tr class="table-primary">
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Project Name</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Manager</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="">
+                  <td scope="row"></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                      <button class="btn btn-outline-secondary btn-sm m-2"> Edit Emp</button>
+                      <button class="btn btn-outline-secondary btn-sm m-2"> Remove Emp</button>
+                  </td>
+                  
+                </tr>
+               
+              </tbody>
+            </table>
           </div>
-
+          
         </div>
+      </div>
         
           
         </div>

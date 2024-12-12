@@ -1,10 +1,13 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+.mdiv{
+    width: 100vw;
+    overflow-x:hidden ;
+    padding: 2rem;
+	padding-top: 1rem;
+}
+@media screen and ( max-width:700px)  {
+    .mdiv{
+        padding: 10px;
+    }
 }
 
 .container {
@@ -29,12 +32,7 @@ section {
 }
 
 /* Progress Bar */
-.completion {
-    background: white;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+
 
 .progress-bar {
     background: #ddd;
@@ -46,74 +44,146 @@ section {
 }
 
 .progress {
-    background: #00ff33;
+    background: #9df375;
+    height: 100%;
+    border-radius: 10px;
+}
+.progress2 {
+    background: #2cbd49;
     height: 100%;
     border-radius: 10px;
 }
 
-/* Admin Panel */
+
 .admin-panel {
     background: white;
     padding: 10px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(64, 124, 235, 0.1);
 }
 
-.actions {
-    display: flex;
-    gap: 10px;
-}
-
-.buttons {
-   
-    background: #358cc6;
-    color: white;
-
-    
-}
-
-.buttons:hover {
-    background: #6e90f7;
-}
-
-/* Members List */
-.members-list {
-    background: white;
+.firstCol ,.secondCol, .thirdCol {
     padding: 1rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
+.inCol{
+    padding: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    min-height: 300px;
+    outline: 1px solid #ccc;
+}
+.pName{
+    background-color: #cfffd8;
+    padding: 1rem;
+}
+.addBtn{
+    padding: 0px;
+    padding-left:1rem ;
+    padding-right:1rem ;
+}
+.bi-plus-circle-fill{
+    font-size: 20px;
+   
 }
 
-table th, table td {
-    text-align: left;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+/* FOR PIE CHART */
+.pie-chart {
+	background:
+		radial-gradient(
+			circle closest-side,
+			transparent 66%,
+			white 0
+		),
+		conic-gradient(
+			#4e79a7 0,
+			#4e79a7 38%,
+			#f28e2c 0,
+			#f28e2c 61%,
+			#e15759 0,
+			#e15759 77%,
+			#76b7b2 0,
+			#76b7b2 87%,
+			#59a14f 0,
+			#59a14f 93%,
+			#edc949 0,
+			#edc949 100%
+	);
+	position: relative;
+	padding: 0;
+	min-height: 268px;
+	margin: 0;
+}
+.pie-chart h2 {
+	position: absolute;
+	margin: 1rem;
+}
+.pie-chart cite {
+	position: absolute;
+	bottom: 0;
+	font-size: 80%;
+	padding: 1rem;
+	color: gray;
+}
+.pie-chart figcaption {
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+	font-size: smaller;
+	text-align: right;
+}
+.pie-chart span:after {
+	display: inline-block;
+	content: "";
+	width: 0.8em;
+	height: 0.8em;
+	margin-left: 0.4em;
+	height: 0.8em;
+	border-radius: 0.2em;
+	background: currentColor;
 }
 
-table th {
-    background: #f4f4f4;
+
+/* Sidenav */
+.projectBox {
+    padding: 1rem;
+    min-height: 5rem;
+    background-color: #d7edfb;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; 
+}
+.projectBox:hover {
+    background-color: #98d6fc;
 }
 
-select {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.manager {
+    position: absolute; /* Positioning the manager name */
+    bottom: 1rem; /* Distance from the bottom */
+    right: 1rem; 
+	font-size: 13px;
 }
 
-.change-role, .remove {
-    background: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
+
+/* Extra */
+.saveBtn{
+	width: 10rem;
+	float: right;
 }
 
-.change-role:hover, .remove:hover {
-    background: #e53935;
+table{
+	font-size: 14px;
 }
+
+th{
+	color:#0f0a9a;
+}
+
+td{
+	color:#343365;
+}
+
+.modal-backdrop.fade.show{
+	display:none;
+  }

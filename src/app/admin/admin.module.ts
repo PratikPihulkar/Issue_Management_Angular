@@ -3,23 +3,29 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { BasePageComponent } from './base-page/base-page.component';
 import { SingleProjectViewComponent } from './single-project-view/single-project-view.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddComponent } from './add/add.component';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { CalenderComponent } from './single-project-view/calender/calender.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
-    AdminLoginComponent,
     BasePageComponent,
-    SingleProjectViewComponent
+    SingleProjectViewComponent,
+    AddComponent,
+    CalenderComponent,
+ 
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    NgSelectModule
   ]
 })
 export class AdminModule { }

@@ -9,10 +9,24 @@ export class DataStoreService {
 
   }
   
+  //Login
+  login(data:any){
+    return this.http.post('http://localhost:8000/login', data)
+   }
+
+
   //Project
 
   getAllProjects(){
    return this.http.get('http://localhost:8000/project')
+  }
+
+  getSingleProjectDetails(project_id:any){
+    return this.http.get('http://localhost:8000/project/'+project_id)
+  }
+
+  assignEmpOnProject(project_id:any ,role:any ){
+    return this.http.put('http://localhost:8000/project/'+project_id, role)
   }
 
   addNewProject(project:any){
@@ -44,7 +58,7 @@ export class DataStoreService {
      return this.http.patch('http://localhost:8000/issue', project)
     }
  
-   
+
    //member
 
    getAllMember(){
@@ -54,7 +68,7 @@ export class DataStoreService {
    addNewMember(member:any){
      return this.http.post('http://localhost:8000/member', member)
     }
- 
+  
    removeSingleMember(projectId:any,){
      return this.http.delete('http://localhost:8000/')
     }

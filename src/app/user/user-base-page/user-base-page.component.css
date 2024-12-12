@@ -38,3 +38,18 @@
 .text-danger{
   font-size: 12px;
 }
+.row{
+  padding: 1.5rem;
+}
+@media screen and (max-width:800px) {
+  .row{
+    padding: 0.5rem;
+  }
+}
+th{
+  padding: auto;
+  margin: auto;
+}
+.col-12{
+  margin-top:2rem ;
+}

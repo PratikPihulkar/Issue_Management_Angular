@@ -1,7 +1,7 @@
 .mdiv{
-    height: 100vh;
+    min-height: 80vh;
     width: 100vw;
-
+   
 }
 .insideMdiv{
     

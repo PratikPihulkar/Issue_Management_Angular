@@ -1,0 +1,16 @@
+<div class="calendar-container">
+    <div class="calendar-header">
+      <button (click)="prevMonth()">&#9664;</button>
+      <span>{{ months[month] }} {{ year }}</span>
+      <button (click)="nextMonth()">&#9654;</button>
+    </div>
+    <div class="calendar-body">
+      <div class="calendar-row">
+        <div class="calendar-cell" *ngFor="let day of days">{{ day }}</div>
+      </div>
+      <div class="calendar-row" *ngFor="let week of weeks">
+        <div class="calendar-cell" *ngFor="let date of week">{{ date }}</div>
+      </div>
+    </div>
+  </div>
+  

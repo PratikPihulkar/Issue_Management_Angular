@@ -33,4 +33,27 @@ export class UserBasePageComponent {
       this.issueForm.reset();
     }
   }
+
+// for PoupUp
+  isEmployeeModalOpen=false
+
+  openAddIssueModal(){
+    this.isEmployeeModalOpen = true;
+  }
+
+  closeEmployeeModal() {
+    this.isEmployeeModalOpen = false;
+    this.issueForm.reset();
+  }
+
+  // for PoupUp
+  isManageIssue=false
+
+  openManageIssue(){
+    this.isManageIssue=true
+  }
+
+  closeManageIssue(){
+      this.isManageIssue=false
+  }
 }

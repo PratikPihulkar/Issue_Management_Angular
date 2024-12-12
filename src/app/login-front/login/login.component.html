@@ -1,0 +1,36 @@
+<div class="mdiv">
+    <div class="boxx">
+        <div class="insideBoxx">
+            <form action="profile light.html" method="get">
+                <div class="wrapper">
+                    <h3>Log in</h3>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="input-box">
+                          <input  type="text"  placeholder="Email"  formControlName="email" [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                          <i class="bx bxs-user"></i>
+                          <div class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
+                            Email is required (min 3 characters).
+                          </div>
+                        </div>
+                      
+                        <div class="input-box">
+                          <input  type="password" placeholder="Password" formControlName="password" [class.invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                          <i class="bx bxs-lock"></i>
+                          <div class="error" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                            Password is required (min 6 characters).
+                          </div>
+                        </div>
+                      
+                       
+                        <button type="submit" class="btn" id="sbmt" [disabled]="loginForm.invalid">Login</button>
+                      
+                        <div class="register-link">
+                          <a href="#">Forgot password</a>
+                          <p>Don't have an account? <a href="register light.html">Sign up</a></p>
+                        </div>
+                      </form>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

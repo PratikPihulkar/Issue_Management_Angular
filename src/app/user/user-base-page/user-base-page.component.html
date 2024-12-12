@@ -1,106 +1,148 @@
 <div class="mdiv">
   <div class="insideMdiv">
-    <button class="backBtn btn btn-secondary btn-sm m-2 ">Back</button>
-      <div class="d-flex justify-content-between">
-          <div class="d-flex p-3 m-2 border">
-            <form [formGroup]="issueForm" (ngSubmit)="addIssue()">
-              <h6>Add Issue</h6>
-              <div class="mb-2">
-                <label for="title" class="block font-bold">Title</label>
-                <input id="title" formControlName="title" type="text" required class="form-input w-full" />
-                <div *ngIf="issueForm.get('title')?.invalid && issueForm.get('title')?.touched" class="text-danger">
-                  Title is required.
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="description" class="block font-bold">Description</label>
-                <textarea id="description" formControlName="description" required class="form-input w-full"></textarea>
-                <div *ngIf="issueForm.get('description')?.invalid && issueForm.get('description')?.touched" class="text-danger">
-                  Description is required.
-                </div>
-              </div>
-              <div class="mb-3">
-                <label for="status" class="block font-bold">Status</label>
-                <select id="status" formControlName="status"  class="form-input w-full">
-                  <option value="open">Open</option>
-                  <option value="inprogress">In Progress</option>
-                  <option value="resolved">Resolved</option>
-                  <option value="closed">Closed</option>
-                </select>
-               
-              </div>
-              <div class="mb-3">
-                <label for="status" class="block font-bold">Priority</label>
-                <select id="status" formControlName="priority"  class="form-input w-full">
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                    <option value="low">Low</option>
-                  
-                </select>
-            </div>
-              <div class="mb-3">
-                <label for="deadline" class="block font-bold">Deadline</label>
-                <input id="deadline" formControlName="deadline" type="date" required class="form-input w-full" />
-                <div *ngIf="issueForm.get('deadline')?.invalid && issueForm.get('deadline')?.touched" class="text-danger">
-                  Deadline is required.
-                </div>
-              </div>
-              <button type="submit" class="btn btn-primary btn-sm" [disabled]="issueForm.invalid">
-                Submit
-              </button>
-            </form>
-          </div>
-          <div class="d-flex">
-              <div class="border outerTable">
+
+    <button class="backBtn btn btn-secondary btn-sm m-2 " (click)="openAddIssueModal()">create Isuue</button>
+
+    <button class="backBtn2 btn btn-secondary btn-sm m-2 " (click)="openManageIssue()">Manage Isuue</button>
+      <div class="row">
+          
+          <div class="col-12 col-lg-6 col-md-6 ">
+              <div class="border outerTable ">
                   <h5 class="">Issue List</h5>
                   <table class="table table-striped">
                     <thead>
                       <tr class="border">
-                        <th class="px-4 py-2">Title</th>
-                        <th class="px-4 py-2">Description</th>
-                        <th class="px-4 py-2">Status</th>
-                        <th class="px-4 py-2">Priority</th>
-                        <th class="px-4 py-2">Deadline</th>
+                        <th class="">Title</th>
+                        <th class="">Description</th>
+                        <th class="">Status</th>
+                        <th class="">Priority</th>
+                        <th class="">Deadline</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr *ngFor="let issue of issues" class="border-b">
-                        <td class="border px-4 py-2">{{ issue.title }}</td>
-                        <td class="border px-4 py-2">{{ issue.description }}</td>
-                        <td class="border px-4 py-2">{{ issue.status }}</td>
-                        <td class="border px-4 py-2">{{ issue.priority }}</td>
-                        <td class="border px-4 py-2">{{ issue.deadline }}</td>
+                        <td class="border ">{{ issue.title }}</td>
+                        <td class="border ">{{ issue.description }}</td>
+                        <td class="border ">{{ issue.status }}</td>
+                        <td class="border ">{{ issue.priority }}</td>
+                        <td class="border ">{{ issue.deadline }}</td>
                       </tr>
                     </tbody>
                   </table>
                 </div>
           </div>
 
-          <div class="d-flex">
+          <div class="col-12 col-lg-6 col-md-6">
               <div class=" border outerTable">
                       <h5 class="">Closed Issues</h5>
                       <table class=" table table-striped">
                       <thead>
                           <tr class="border">
-                          <th class="px-4 py-2">Title</th>
-                          <th class="px-4 py-2">Description</th>
-                          <th class="px-4 py-2">Status</th>
-                          <th class="px-4 py-2">Priority</th>
-                          <th class="px-4 py-2">Deadline</th>
+                          <th class="">Title</th>
+                          <th class="">Description</th>
+                          <th class="">Status</th>
+                          <th class="">Priority</th>
+                          <th class="">Deadline</th>
                           </tr>
                       </thead>
                       <tbody>
                           <tr *ngFor="let issue of closedIssues" class="">
-                          <td class="border px-4 py-2">{{ issue.title }}</td>
-                          <td class="border px-4 py-2">{{ issue.description }}</td>
-                          <td class="border px-4 py-2">{{ issue.status }}</td>
-                          <td class="border px-4 py-2">{{ issue.priority }}</td>
-                          <td class="border px-4 py-2">{{ issue.deadline }}</td>
+                          <td class="border ">{{ issue.title }}</td>
+                          <td class="border ">{{ issue.description }}</td>
+                          <td class="border ">{{ issue.status }}</td>
+                          <td class="border ">{{ issue.priority }}</td>
+                          <td class="border ">{{ issue.deadline }}</td>
                           </tr>
                       </tbody>
                       </table>
                   </div>
           </div>
+          
       </div>
+    <!-- Add Issue Module -->
+
+    <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isEmployeeModalOpen}" [style.display]="isEmployeeModalOpen ? 'block' : 'none'" (click)="closeEmployeeModal()">
+      <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title">Create Issue</h5>
+          </div>
+          <div class="modal-body">
+              <!-- Form -->
+              <form [formGroup]="issueForm" (ngSubmit)="addIssue()">
+                <h6>Create Issue</h6>
+                <div class="mb-2">
+                  <label for="title" class="block font-bold">Title</label>
+                  <input id="title" formControlName="title" type="text" required class="form-input w-full" />
+                  <div *ngIf="issueForm.get('title')?.invalid && issueForm.get('title')?.touched" class="text-danger">
+                    Title is required.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="description" class="block font-bold">Description</label>
+                  <textarea id="description" formControlName="description" required class="form-input w-full"></textarea>
+                  <div *ngIf="issueForm.get('description')?.invalid && issueForm.get('description')?.touched" class="text-danger">
+                    Description is required.
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="status" class="block font-bold">Status</label>
+                  <select id="status" formControlName="status"  class="form-input w-full">
+                    <option value="open">Open</option>
+                    <option value="inprogress">In Progress</option>
+                    <option value="resolved">Resolved</option>
+                    <option value="closed">Closed</option>
+                  </select>
+                 
+                </div>
+                <div class="mb-3">
+                  <label for="status" class="block font-bold">Priority</label>
+                  <select id="status" formControlName="priority"  class="form-input w-full">
+                      <option value="medium">Medium</option>
+                      <option value="high">High</option>
+                      <option value="low">Low</option>
+                    
+                  </select>
+              </div>
+                <div class="mb-3">
+                  <label for="deadline" class="block font-bold">Deadline</label>
+                  <input id="deadline" formControlName="deadline" type="date" required class="form-input w-full" />
+                  <div *ngIf="issueForm.get('deadline')?.invalid && issueForm.get('deadline')?.touched" class="text-danger">
+                    Deadline is required.
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm" [disabled]="issueForm.invalid">
+                  Create
+                </button>
+              </form>
+             
+          
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" [ngClass]="{'show': isEmployeeModalOpen}" *ngIf="isEmployeeModalOpen"></div>
+
+    <!-- Manage Issue -->
+
+    <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isManageIssue}" [style.display]="isManageIssue ? 'block' : 'none'" (click)="closeManageIssue()">
+      <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title">Create Issue</h5>
+          </div>
+          <div class="modal-body">
+              <!-- Form -->
+
+          </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" [ngClass]="{'show': isManageIssue}" *ngIf="isManageIssue"></div>
+
+
+
   </div>
 </div>

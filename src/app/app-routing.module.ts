@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AdminComponent } from './admin/admin.component';
-import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { BasePageComponent } from './admin/base-page/base-page.component';
 import { SingleProjectViewComponent } from './admin/single-project-view/single-project-view.component';
 import { HomeComponent } from './home/home.component';

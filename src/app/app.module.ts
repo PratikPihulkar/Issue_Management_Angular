@@ -10,11 +10,18 @@ import { AdminModule } from './admin/admin.module';
 import { UserModule } from './user/user.module';
 import { LoginFrontComponent } from './login-front/login-front.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { LoginComponent } from './login-front/login/login.component';
+import { RegisterComponent } from './login-front/register/register.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginFrontComponent,
+    LoginComponent,
+    RegisterComponent,
 
   ],
   imports: [
@@ -23,7 +30,10 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     AdminModule,
     UserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgSelectModule,
+    ReactiveFormsModule
     
   ],
   providers: [

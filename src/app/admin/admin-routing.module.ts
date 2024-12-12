@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminModule } from './admin.module';
 import { AdminComponent } from './admin.component';
 import { BasePageComponent } from './base-page/base-page.component';
@@ -13,14 +12,8 @@ const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: [
-      { 
-        path: '', 
-        component: AdminLoginComponent 
-      }, 
-      { 
-        path: 'admin_login', 
-        component: AdminLoginComponent 
-      }, 
+    
+     
       { 
         path: 'admin_base_page', 
         component: BasePageComponent 
@@ -29,6 +22,10 @@ const routes: Routes = [
         path: 'single_project_view', 
         component: SingleProjectViewComponent 
       },
+      // { 
+      //   path: 'single_project_view/:project_id', 
+      //   component: SingleProjectViewComponent 
+      // },
     ],
   },
 

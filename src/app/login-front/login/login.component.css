@@ -142,4 +142,14 @@
     color: #fff;
     background-color: #3b4148;
  }
- 
+ .input-box input.invalid {
+    border-color: red;
+  }
+  
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+  .form-select{
+    
+  }
