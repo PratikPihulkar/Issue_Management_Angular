@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class="mdiv">
+  <div class="insideMdiv">
+   <br>
+    <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+      
+      <div class="modal-content">
+          <div class="modal-header">
+          <h5 class="modal-title">Add Member in Project</h5>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="registerationForm" (ngSubmit)="onSubmitRegistrationForm()">
+                  <div class="form-group">
+                    <label for="name">Project Name:</label>
+                    <input id="name" formControlName="name" class="form-control" required>
+                    <div *ngIf="registerationForm.get('name')?.invalid && registerationForm.get('name')?.touched" class="text-danger">
+                      Project name is required.
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email"> Email:</label>
+                    <input id="email" formControlName="email" class="form-control" required>
+                    <div *ngIf="registerationForm.get('email')?.invalid && registerationForm.get('email')?.touched" class="text-danger">
+                      Email is required.
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input id="password" formControlName="password" class="form-control" required>
+                    <div *ngIf="registerationForm.get('password')?.invalid && registerationForm.get('password')?.touched" class="text-danger">
+                      Password is required.
+                    </div>
+                  </div>
+              
+                  <div class="form-group">
+                    <label for="password_confirmation"> Confirm Password:</label>
+                    <input id="password_confirmation" formControlName="password_confirmation" class="form-control" required>
+                    <div *ngIf="registerationForm.get('password_confirmation')?.invalid && registerationForm.get('password_confirmation')?.touched" class="text-danger">
+                      Retype Password
+                    </div>
+                  </div>
+
+                  <div class="modal-footer"> 
+                    <button type="button" class="btn btn-secondary" routerLink="/login">Cancel</button>
+                    <button type="submit" class="btn btn-primary" [disabled]="registerationForm.invalid">Register</button>
+                  </div>
+
+                </form> 
+          </div>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

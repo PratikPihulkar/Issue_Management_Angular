@@ -7,6 +7,7 @@ import { SingleProjectViewComponent } from './admin/single-project-view/single-p
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { LoginFrontComponent } from './login-front/login-front.component';
+import { RegisterComponent } from './login-front/register/register.component';
 
 const routes: Routes = [
   {
@@ -17,7 +18,10 @@ const routes: Routes = [
     path: 'home',
     component:HomeComponent
   },
-
+  {
+    path: 'register',
+    component:RegisterComponent
+  },
   {
     path: 'Navbar',
     component:NavbarComponent

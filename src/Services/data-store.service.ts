@@ -14,6 +14,12 @@ export class DataStoreService {
     return this.http.post('http://localhost:8000/login', data)
    }
 
+  //Register
+  registerAdmin(data:any){
+    console.log("FROM DATA STORE")
+    console.log(data)
+    return this.http.post('http://localhost:8000/company', data)
+  }
 
   //Project
 

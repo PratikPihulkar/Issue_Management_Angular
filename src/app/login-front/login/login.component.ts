@@ -15,7 +15,7 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['Admin', []],
+     
     });
   }
 
@@ -24,16 +24,20 @@ export class LoginComponent {
       console.log(this.loginForm.value)
       const formData = this.loginForm.value; // Extract the plain object containing form data
       try {
-        this.dataStore.login(formData.value).subscribe((res: any) => {
+        this.dataStore.login(formData).subscribe((res: any) => {
           this.data = res.data;
           localStorage.setItem('accessToken', res.data.access_token);
           console.log(res.data.access_token);
         });
       } catch (error) {
         console.error('Error occurred during login:', error);
+        alert("Something is Wrong");
       }
     } else {
       console.warn('Login form is invalid');
     }
+  }
+  clickRegister(){
+    
   }
 }
