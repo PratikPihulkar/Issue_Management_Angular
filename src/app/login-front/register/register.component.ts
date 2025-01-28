@@ -12,6 +12,8 @@ export class RegisterComponent {
 
   registerationForm: FormGroup ;
 
+  showAlert: boolean = false;
+
   constructor(private fb:FormBuilder, private dataStore: DataStoreService, private router: Router){
 
     this.registerationForm = this.fb.group({
@@ -44,7 +46,12 @@ export class RegisterComponent {
         this.dataStore.registerAdmin(formData).subscribe((res: any) => {
             if(res.status==='success')
             {
-              this.router.navigate(['/login'])
+
+              this.showAlert = true;
+              setTimeout(() => {
+                this.showAlert = false;
+                this.router.navigate(['/login'])
+              },2000);
             }
         });
       } catch (error) {
@@ -55,11 +62,5 @@ export class RegisterComponent {
       console.warn('Login form is invalid');
     }
   }
-
-
-
- 
-
- 
 
 }

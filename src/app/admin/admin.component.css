@@ -1,0 +1,13 @@
+.top{
+    margin: auto;
+    padding: auto;
+    background-color: aqua;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.heading
+{
+  
+}

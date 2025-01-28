@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataStoreService } from '../../../Services/data-store.service';
 
 @Component({
   selector: 'app-base-page',
@@ -23,7 +24,7 @@ export class BasePageComponent implements OnInit{
 }
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private dataStore:DataStoreService) {
 
     this.projectForm = this.fb.group({
       name: ['', Validators.required],
@@ -97,11 +98,15 @@ export class BasePageComponent implements OnInit{
 
   onSubmitProject() {
     if (this.projectForm.valid) {
-      // Handle form submission
-      console.log(this.projectForm.value);
-      this.closeModal(); // Close modal after submission
+        console.log(this.projectForm.value);
+        this.dataStore.addNewProject(this.projectForm.value).subscribe((res)=>{
+          
+        })
+      this.closeModal();
     }
   }
+
+
   onSubmitEmployee() {
     if (this.employeeForm.valid) {
       // Handle form submission logic here
@@ -109,4 +114,5 @@ export class BasePageComponent implements OnInit{
       this.closeEmployeeModal();
     }
   }
+  
 }

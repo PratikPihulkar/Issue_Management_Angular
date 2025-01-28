@@ -12,10 +12,9 @@ const routes: Routes = [
     path: '',
     component: AdminComponent,
     children: [
-    
-     
+  
       { 
-        path: 'admin_base_page', 
+        path: '', 
         component: BasePageComponent 
       },
       { 

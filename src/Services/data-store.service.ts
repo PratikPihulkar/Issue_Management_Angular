@@ -1,18 +1,52 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { catchError, map, Observable, throwError } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 @Injectable({
   providedIn: 'root'
 })
 export class DataStoreService {
 
-  constructor(private  http: HttpClient ) { 
+  constructor(private  http: HttpClient,  @Inject(PLATFORM_ID) private platformId: Object) { 
 
   }
   
   //Login
   login(data:any){
-    return this.http.post('http://localhost:8000/login', data)
+    return this.http.post('http://localhost:8000/login', data);
    }
+
+   logout(refresh_token:any):Observable<any>{ 
+    return this.http.post('http://localhost:8000/logout', {"refresh_token":refresh_token});
+    }
+
+    refreshToken() {
+
+      if(!isPlatformBrowser(this.platformId)) {
+        return throwError(() => new Error('Token refresh not supported in SSR environment.'));
+      }
+      
+      // if(isPlatformBrowser(this.platformId)) {
+        const refreshToken = localStorage.getItem('refreshToken');
+  
+        if (!refreshToken) {
+          console.error('No refresh token found in storage!');
+          // return throwError('No refresh token found.');
+        }
+    
+        return this.http.post<{ new_access_token: any }>('http://localhost:8000/refresh', { refreshToken })
+        .pipe(
+          map(response => {
+            console.log('Refresh Response:', response);
+            return response.new_access_token;
+          }),
+          catchError(err => {
+            console.error('Refresh Token Error:', err);
+            return throwError(err);
+          })
+        ); 
+  
+    }
 
   //Register
   registerAdmin(data:any){

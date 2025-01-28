@@ -4,12 +4,13 @@
            
                 <div class="wrapper">
                     <h3>Log in</h3>
+                   <p>pratikpihulkar2000gmail.com</p> 
                     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                         <div class="input-box">
                           <input  type="text"  placeholder="Email"  formControlName="email" [class.invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
                           <i class="bx bxs-user"></i>
                           <div class="error" *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-                            Email is required (min 3 characters).
+                            Enter valid email address.
                           </div>
                         </div>
                       
@@ -30,7 +31,12 @@
                         </div>
                       </form>
                 </div>
-         
+                
         </div>
     </div>
+</div>
+<div *ngIf="showAlert" class="alert alert-success" role="alert">
+  <div class="d-flex align-items-center justify-content-center">
+    <h6>Login successful! Welcome back.</h6>
+  </div>
 </div>

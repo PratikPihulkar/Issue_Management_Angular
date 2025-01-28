@@ -150,6 +150,35 @@
     color: red;
     font-size: 12px;
   }
-  .form-select{
-    
-  }
+
+ /* ALERT */
+ .alert {
+   position: fixed;
+   top: -100px; /* Initially hidden above the viewport */
+   left: 50%;
+   transform: translateX(-50%);
+   z-index: 1050; /* Higher z-index to overlay other elements */
+   animation: slideDown 0.5s ease-in-out forwards; /* Slide-down effect */
+ }
+ 
+ @keyframes slideDown {
+   0% {
+     top: -100px;
+     opacity: 0;
+   }
+   100% {
+     top: 20px; /* Adjust as needed */
+     opacity: 1;
+   }
+ }
+ 
+ .alert-success {
+   background-color: #d4edda;
+   color: #155724;
+   border: 1px solid #c3e6cb;
+   border-radius: 0.25rem;
+   padding: 10px 20px;
+   text-align: center;
+   font-size: 16px;
+ }
+ 

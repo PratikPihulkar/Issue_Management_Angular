@@ -1,0 +1,27 @@
+.mdiv{
+    height: 100vh;
+    width: 100vw;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    
+}
+.thumbnail {
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(26,24,46,1) 41%, rgba(67,53,70,1) 52%, rgba(252,70,107,1) 100%);
+    width: 500;
+    height: 150px;
+    border: 1px solid #ccc;
+    display: inline-block;
+  }
+  
+  .selected {
+    border: 3px solid green;
+  }
+  
+  .highlighted {
+    background-color: yellow;
+  }
+  .siv{
+    bottom: 0;
+    position: relative;
+  }

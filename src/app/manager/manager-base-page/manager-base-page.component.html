@@ -1,0 +1,226 @@
+
+<!-- Main Div -->
+
+<div class="mdiv">  
+
+    
+    <div class="top">
+        <div class="pName">
+            <h5>Project Issue Management</h5>
+        </div>
+        <div class="row">
+
+            <!-- Project Completion -->
+            <div class="col-12 col-lg-4 col-md-4 firstCol">
+                <div class="inCol">
+                  
+                    <div class="completion">
+                        <h6 class="mt-2">Project Completion</h6>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 75%;"></div>
+                        </div>
+                        <p>75% Completed</p>
+                    </div>
+                    <br>
+                    <div class="completion">
+                        <h6 >Requirement Fulfillment</h6>
+                     
+                        <div class="progress-bar  ">
+                            <div class="progress progress2" style="width: 86%;"></div>
+                        </div>
+                        <p>86% Requirement are Done</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Pie Chart -->
+            <div class="col-12 col-lg-4 col-md-4 secondCol">
+                 <div class="inCol">
+
+                    <figure class="pie-chart">
+                        <h6 class="p-2">Project Human Resource</h6>
+                        <figcaption>
+                            Developer 38<span style="color:#4e79a7"></span><br>
+                            Tester 23<span style="color:#f28e2c"></span><br>
+                            DevOps 16<span style="color:#e15759"></span><br>
+                            Database 10<span style="color:#76b7b2"></span><br>
+                            Busness 6<span style="color:#59a14f"></span><br>
+                            Other 7<span style="color:#edc949"></span>
+                        </figcaption>
+                        <cite>Project HR Details </cite>
+                    </figure>
+                 </div>
+
+            </div>
+            <!-- Calender -->
+            <div class="col-12 col-lg-4 col-md-4 thirdCol">
+                <div class="inCol">
+                    <app-calender></app-calender>  
+                        <!--WHY NOT USE-->
+                    <!-- <app-cal></app-cal> -->
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+    
+
+
+    <div class="row">
+
+        <!--Project Issue Table -->
+        <div class="col-12 col-lg-7 col-md-7 ">
+            <div class="main-card mb-3 card ">
+                <div class="d-flex justify-content-between p-2" >
+                    <h5> Issue </h5>
+                    <div class="btn-actions-pane-right">
+                        
+                    </div>
+                    </div>
+                
+                <div class="table-responsive">
+                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                        <thead>
+                        <tr class=" table-light">
+                            <th class="text-center">Issue id</th>
+                            <th class="text-center">Title</th>
+                            <th class="text-center">Description</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Priority</th>
+                            <th class="text-center">Deadline</th>
+                            <th class="text-center">Creater</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="text-center text-muted">#345</td>
+                            <td class="text-center"></td>
+                            <td class="text-center"></td>
+                            <td class="text-center">Pending</td>
+                            <td class="text-center">Madrid</td>
+                            <td class="text-center"> 12/12/2025</td>
+                            <td class="text-center"> Pratik</td>
+                            <td class="text-center">
+                                <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">view</button>
+                            </td>
+                        </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-block text-center card-footer p-0">
+                    <div class=" d-flex justify-content-between">
+                        <button class="m-2 btn btn-outline-danger btn-sm">  Privious</button>
+                        <button class="m-2 btn btn-outline-secondary btn-sm"> Next </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Project Employee Table -->
+        <div class="col-12 col-lg-5 col-md-5">
+            <div class="main-card mb-3 card ">
+                <div class="d-flex justify-content-between p-2" >
+                    <h5> Members </h5>
+                    <div class="btn-actions-pane-right">
+                        <div>
+                            <button class="btn btn-sm btn-outline-primary addBtn" (click)="openAddMemberModal()"> Add Members <i class="bi bi-plus-circle-fill"></i></button>
+                            
+                        </div>
+                        
+                    </div>
+                    </div>
+                
+                <div class="table-responsive">
+                    <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                        <thead>
+                        <tr class="table-light">
+                            <th class="text-center">Emp id</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">Role</th>
+                            <th class="text-center">Email</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="text-center text-muted">#345</td>
+                            <td ></td>
+                            <td class="text-center">Developer</td>
+                            <td class="text-center">Pending</td>
+                           
+                            <td class="text-center">
+                                <button type="button" id="PopoverCustomT-1" class="btn btn-primary btn-sm">Release</button>
+                            </td>
+                        </tr>
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-block text-center card-footer p-0">
+                    <div class=" d-flex justify-content-between">
+                        <button class="m-2 btn btn-outline-danger btn-sm">  Privious</button>
+                        <button class="m-2 btn btn-outline-secondary btn-sm"> Next </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Add new Member to Project -->
+        <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'show': isEmployeeModalOpen}" [style.display]="isEmployeeModalOpen ? 'block' : 'none'" (click)="closeEmployeeModal()">
+            <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title">Add Member in Project</h5>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <form [formGroup]="asignEmpform" (ngSubmit)="addEmpOnProject()">
+                            <label for="">Search Member</label>
+                            <div class="container">
+                            <ng-select 
+                                class="selectBar"
+                                [items]="items"
+                                bindLabel="name"
+                                bindValue="id"
+                                placeholder="Select Member"
+                                [searchable]="true"
+                                [clearable]="true"
+                                [loading]="loading"
+                                formControlName="selectedMember"
+                                (change)="onChange($event)">
+                            </ng-select>
+                            </div>
+                        
+                            <label for="">Select Role</label>
+                            <div class="container">
+                            <ng-select 
+                                class="selectBar"
+                                [items]="roles"
+                                bindLabel="role"
+                                placeholder="Select Role"
+                                [searchable]="true"
+                                [clearable]="true"
+                                [loading]="loading"
+                                formControlName="selectedRole"
+                                (change)="onChange($event)">
+                            </ng-select>
+                            </div>
+                        
+                            <button type="button" class="btn btn-danger btn-sm m-2 cancle" (click)="closeEmployeeModal()">Cancel</button>
+                            <button type="submit" class="btn btn-success btn-sm m-2 saveBtn">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop" [ngClass]="{'show': isEmployeeModalOpen}" *ngIf="isEmployeeModalOpen"></div>
+</div>
+       
+
+
+
+

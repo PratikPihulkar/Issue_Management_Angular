@@ -36,3 +36,9 @@ label{
 hr{
     margin: 0px;
 }
+
+.btn.active {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border-color: #007bff;
+  }

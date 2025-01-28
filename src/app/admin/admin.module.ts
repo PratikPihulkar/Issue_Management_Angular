@@ -26,6 +26,7 @@ import { CalenderComponent } from './single-project-view/calender/calender.compo
     ReactiveFormsModule,
     FormsModule,
     NgSelectModule
-  ]
+  ],
+  exports: [ CalenderComponent ]
 })
 export class AdminModule { }

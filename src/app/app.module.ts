@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { LoginComponent } from './login-front/login/login.component';
 import { RegisterComponent } from './login-front/register/register.component';
+import { ManagerModule } from './manager/manager.module';
+import { CalComponent } from './cal/cal.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,7 @@ import { RegisterComponent } from './login-front/register/register.component';
     LoginFrontComponent,
     LoginComponent,
     RegisterComponent,
+    CalComponent,
 
   ],
   imports: [
@@ -30,15 +33,18 @@ import { RegisterComponent } from './login-front/register/register.component';
     NgbModule,
     AdminModule,
     UserModule,
+    ManagerModule,
+
     HttpClientModule,
     FormsModule,
     NgSelectModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+  
   ],
   providers: [
     provideClientHydration()
   ],
+  exports:[CalComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -4,13 +4,12 @@ import { ActivatedRoute } from '@angular/router';
 import { DataStoreService } from '../../../Services/data-store.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-single-project-view',
-  templateUrl: './single-project-view.component.html',
-  styleUrl: './single-project-view.component.css'
+  selector: 'app-manager-base-page',
+  templateUrl: './manager-base-page.component.html',
+  styleUrl: './manager-base-page.component.css'
 })
-export class SingleProjectViewComponent implements OnInit{
+export class ManagerBasePageComponent implements OnInit{
 
   project_id:any
 
